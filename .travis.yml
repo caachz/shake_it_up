@@ -9,6 +9,3 @@ before_script: 
 
 env:
   - ENV['RAILS_ENV'] = 'test'
-
-before_install:
-  - gem install rake
