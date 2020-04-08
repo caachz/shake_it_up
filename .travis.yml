@@ -3,6 +3,7 @@ language: ruby
 before_install:
   - yes | gem update --system --force
   - gem install bundler
+  - gem update --system
 
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
@@ -12,14 +13,8 @@ script:
 services:
   - postgresql
 
-addons:
-  postgresql: '12.2'
-
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-
-addons:
-  postgresql: '12.2'
 
 env:
   - ENV['RAILS_ENV'] = 'test'
