@@ -1,5 +1,4 @@
 language: ruby
-os: osx
 
 before_install:
   - yes | gem update --system --force
@@ -10,3 +9,6 @@ services:
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+
+env:
+  - ENV['RAILS_ENV'] = 'test'
