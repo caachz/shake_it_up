@@ -1,20 +1,12 @@
-language: ruby
-
-before_install:
-  - yes | gem update --system --force
-  - gem install bundler
-  - gem update --system
-
+language:
+  - ruby
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rspec
-
 services:
   - postgresql
-
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-
-env:
-  - ENV['RAILS_ENV'] = 'test'
+  - psql -c 'create database NAME_OF_DB_HERE;' -U postgres
+  - nvm install v11.12.0
+  - nvm use v11.12.0
+  - yarn add stimulus
