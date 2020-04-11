@@ -6,6 +6,6 @@ get 'auth/:provider/callback', to: 'sessions#create'
 get 'auth/failure', to: redirect('/')
 get 'home', to: 'home#show'
 get 'me', to: 'me#show', as: 'me'
-
+#change me to dashboard at some point and can be the page the user uses to shake it up
 root to: "home#show"
 end
