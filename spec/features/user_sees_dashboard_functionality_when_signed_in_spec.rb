@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSPec.describe 'As a logged in user' do
+RSpec.describe 'As a logged in user' do
   before :each do
     visit root_path
     stub_omniauth
@@ -15,7 +15,7 @@ RSPec.describe 'As a logged in user' do
     expect(page).to have_content('Welcome, Happy Gilmore')
     expect(page).to have_content('Logout')
     select "1 Mile", from: :distance
-    select "$$$", from: :price
+    select "$$$", from: :prices
     click_button 'Shake It Up!'
   end
 end

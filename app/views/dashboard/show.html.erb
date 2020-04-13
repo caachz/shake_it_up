@@ -1,5 +1,16 @@
 <% if current_user %>
-	<% current_user.attributes.each do |k, v| %>
-		<b><%= k %>:</b> <%= v %> <br>
-	<% end %>
+	Welcome, <%= current_user.first_name %> <%= current_user.last_name %>
 <% end %>
+
+Use My Current Location:<br>
+
+Travel Distance:<br>
+<%= text_field(:post, :radius) %> Miles<br><br><br>
+
+
+Price Range:<br>
+<%= form_tag(search_path, method: "get") do %>
+            <%= select_tag(:distance, options_for_select(distance), {class: "select-field"}) %>
+            <%= select_tag(:price, options_for_select(prices), {class: "select-field"}) %>
+            <%= submit_tag('Shake It Up', class: "button") %>
+          <% end %>

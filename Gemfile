@@ -30,10 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rspec-rails'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
-<<<<<<< HEAD
 gem 'materialize-sass'
-=======
->>>>>>> 21e2508b7b592866548b3b34c21fd67b6afc5adc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
