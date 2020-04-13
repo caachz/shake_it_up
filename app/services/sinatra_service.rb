@@ -1,0 +1,4 @@
+class SinatraService
+
+
+end 
