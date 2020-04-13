@@ -1,0 +1,13 @@
+Use My Current Location:<br>
+
+Travel Distance:<br>
+<%= text_field(:post, :radius) %> Miles<br><br><br>
+
+
+Price Range:<br>
+
+<% form_for @entry do |f| %>
+  <%= f.text_field :name %>
+  <%= f.select :temperature, [['Hot','hot'],['Medium','medium'],['Cold','cold']] %>
+  <%= f.submit %>
+<% end %>
