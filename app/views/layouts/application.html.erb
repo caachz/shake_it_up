@@ -10,18 +10,21 @@
   </head>
 
   <body>
-    <div class="container">
       <nav>
         <div class="nav-wrapper blue-grey darken-1">
           <a href="#" class="brand-logo center">ShakeItUp</a>
           <% if current_user != nil %>
-            <div class="col s12 m6 l3">
-            <%= link_to 'Logout', logout_path %>
+
+          <div class="row">
+        		<div class="col s5">
+
+            <div class="col s12">
+              <%= link_to 'Logout', logout_path %>
             </div>
+          </div>
           <% end %>
         </div>
       </nav>
     <%= yield %>
-    </div>
   </body>
 </html>
