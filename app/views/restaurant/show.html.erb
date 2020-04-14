@@ -7,3 +7,12 @@
         <li id='category'>Category: <%= @restaurant.category %>
       </ul>
     </section>
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/directions?key=<%=ENV['GOOGLE_API_KEY']%>
+    &origin=<%=@current_user.lat%>,<%=current_user.lng%>
+    &destination=<%=@restaurant.lat%>,<%=@restaurant.lng%>" allowfullscreen>
+</iframe>

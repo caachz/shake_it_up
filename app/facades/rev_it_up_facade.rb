@@ -24,4 +24,12 @@ class RevItUpFacade
   def category
     @data[:categories][0][:title]
   end
+
+  def lat
+    @data[:latitude].to_f
+  end
+
+  def lng
+    @data[:longitude].to_f
+  end
 end
