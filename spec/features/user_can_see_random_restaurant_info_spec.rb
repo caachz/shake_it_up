@@ -22,8 +22,8 @@ RSpec.describe 'As a user when I visit dashboard' do
         expect(first('#name').text).to_not be_empty
         expect(first('#avg_rating').text).to_not be_empty
         expect(first('#price').text).to_not be_empty
+        expect(first('#category').text).to_not be_empty
       end
-
     end
   end
 end
