@@ -1,1 +1,15 @@
-<%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+<br><br><br><br>
+<span class="flow-text">
+  <div class="center-align">
+    <img class="responsive-img" src="https://media.giphy.com/media/RNQzfenCmm3RfR4Ttp/giphy.gif">
+<br><br><br><br>
+
+    <a class ="waves-effect waves-light btn-large blue-grey">
+      <% if current_user == nil %>
+        <%= button_to "Sign in with Google", "/auth/google_oauth2", style: "color: white;" %>
+      <% else %>
+        Signed in as <%= current_user.first_name %>
+      <% end %>
+    </a>
+  </div>
+</span>
