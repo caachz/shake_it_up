@@ -2,8 +2,6 @@
 	Welcome, <%= current_user.first_name %> <%= current_user.last_name %>
 <% end %>
 
-<%= link_to "Shake It Up", "/restaurant" %>
-
 Use My Current Location:<br>
 
 Travel Distance:<br>
@@ -11,8 +9,8 @@ Travel Distance:<br>
 
 
 Price Range:<br>
-<%= form_tag(search_path, method: "get") do %>
+<%= form_tag(restaurant_path, method: "get") do %>
             <%= select_tag(:distance, options_for_select(distance), {class: "select-field"}) %>
             <%= select_tag(:price, options_for_select(prices), {class: "select-field"}) %>
-            <%= submit_tag('Shake It Up', class: "button") %>
+            <%= submit_tag('Shake It Up!', class: "button") %>
           <% end %>

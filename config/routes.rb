@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'home', to: 'home#show'
-  get '/search', to: 'search#show', as: 'search'
+  get '/restaurant', to: 'restaurant#show', as: 'restaurant'
   get '/dashboard', to: 'dashboard#show', as: 'dashboard'
   root to: "home#show"
 end

@@ -2,13 +2,27 @@ require 'rails_helper'
 
 RSpec.describe 'As a user when I visit dashboard' do
   describe 'I can click shake it up link with params of price and distance' do
+    before :each do
+      visit root_path
+      stub_omniauth
+      click_link 'Sign in with Google'
+
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content('Happy')
+      expect(page).to have_content('Gilmore')
+    end
     it 'shows me a random restaurant with info' do
-    user = User.new(provider: "google_oauth2", uid: "12345678910", first_name: 'Happy', last_name: 'Gilmore', email: 'subway@gmail.com')
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit '/dashboard'
+      visit '/dashboard'
+      select "1 Mile", from: :distance
+      select "$$$", from: :price
+      click_button 'Shake It Up!'
 
-    click_link 'Shake It Up'
+      within '#restaurant' do
+        expect(first('#name').text).to_not be_empty
+        expect(first('#avg_rating').text).to_not be_empty
+        expect(first('#price').text).to_not be_empty
+      end
 
     end
   end
