@@ -1,16 +1,36 @@
+<br><br><br><br>
 <% if current_user %>
-	Welcome, <%= current_user.first_name %> <%= current_user.last_name %>
-<% end %>
-
-Use My Current Location:<br>
-
-Travel Distance:<br>
-<%= text_field(:post, :radius) %> Miles<br><br><br>
+	<div class="center-align"><h6> Welcome, <%= current_user.first_name %></h6>
+	</div>
+<% end %><br><br><br><br>
 
 
-Price Range:<br>
-<%= form_tag(search_path, method: "get") do %>
-            <%= select_tag(:distance, options_for_select(distance), {class: "select-field"}) %>
-            <%= select_tag(:price, options_for_select(prices), {class: "select-field"}) %>
-            <%= submit_tag('Shake It Up', class: "button") %>
+<div class="center-align">	<%= form_tag(search_path, method: "get") do %>
+
+	<h4>Travel Distance:</h4><br>
+
+	<div class="row">
+		<div class="col s12 m4 l2">
+	</div>
+
+	<div class="row">
+		<div class="col s12 m4 l8"><span class="flow-text">
+			<%= select_tag(:distance, options_for_select(distance) ) %><br><br>
+		</span></div>
+	</div>
+
+	<h4>Price Range:</h4><br>
+
+	<div class="row">
+		<div class="col s12 m4 l2">
+	</div>
+
+	<div class="row">
+		<div class="col s12 m4 l8"><span class="flow-text">
+  <%= select_tag(:price, options_for_select(prices)) %><br><br>
+	</span></div>
+	</div>
+
+	<%= submit_tag('Shake It Up', class: "button") %>
           <% end %>
+</div>
