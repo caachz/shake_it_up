@@ -5,7 +5,7 @@ RSpec.describe 'As a visitor' do
 
     visit root_path
     stub_omniauth
-    click_link 'Sign in with Google'
+    click_button 'Sign in with Google'
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content('Happy')

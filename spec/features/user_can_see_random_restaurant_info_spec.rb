@@ -4,13 +4,13 @@ RSpec.describe 'As a user when I visit dashboard' do
   describe 'I can click shake it up link with params of price and distance' do
     before :each do
       visit root_path
-      stub_omniauth
-      click_link 'Sign in with Google'
+      stub_omniauth 
+      click_button 'Sign in with Google'
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content('Happy')
-      # expect(page).to have_content('Gilmore')
     end
+
     it 'shows me a random restaurant with info' do
 
       visit '/dashboard'
