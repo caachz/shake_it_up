@@ -6,6 +6,6 @@ class RestaurantController < ApplicationController
   end
 
   def meters_to_miles
-    (params["distance"][0].to_i * 1609).to_i
+    (params["distance"].to_f * 1609)
   end
 end

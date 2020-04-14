@@ -9,7 +9,7 @@ RSpec.describe 'As a user when I visit dashboard' do
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content('Happy')
-      expect(page).to have_content('Gilmore')
+      # expect(page).to have_content('Gilmore')
     end
     it 'shows me a random restaurant with info' do
 
