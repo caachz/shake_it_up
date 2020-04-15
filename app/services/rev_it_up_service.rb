@@ -7,12 +7,16 @@ class RevItUpService
 
   private
 
-    def get_json(url)
-      response = conn.get(url)
+  def get_json(url)
+    response = conn.get(url)
+    if response.reason_phrase == "OK"
       json_response = JSON.parse(response.body, symbolize_names: true)
+    else
+      return 'error'
     end
+  end
 
-    def conn
-      conn = Faraday.new(url: "https://rev-it-up.herokuapp.com")
-    end
+  def conn
+    conn = Faraday.new(url: "https://rev-it-up.herokuapp.com")
+  end
 end
