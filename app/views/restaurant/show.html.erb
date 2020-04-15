@@ -1,3 +1,4 @@
+  <div class="center-align">
     <section id='restaurant'>
       <h1 id='name'><%= @restaurant.name %></h1>
       <ul>
@@ -8,11 +9,19 @@
       </ul>
     </section>
 
-<iframe
-  width="600"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/directions?key=<%=ENV['GOOGLE_API_KEY']%>
-    &origin=<%=@current_user.lat%>,<%=current_user.lng%>
-    &destination=<%=@restaurant.lat%>,<%=@restaurant.lng%>" allowfullscreen>
-</iframe>
+  <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/directions?key=<%=ENV['GOOGLE_API_KEY']%>
+      &origin=<%=@current_user.lat%>,<%=current_user.lng%>
+      &destination=<%=@restaurant.lat%>,<%=@restaurant.lng%>" allowfullscreen>
+  </iframe><br><br>
+Not Satisfied? <br>
+  <a class="waves-effect waves-light btn-small">
+    <INPUT TYPE="button" VALUE="Shake It Again" onClick="history.go(0)">
+  </a>
+  <a class="waves-effect waves-light btn-small">
+  <%= button_to "Reset Params", dashboard_path, method: :get %>
+  </a>
+</div>
