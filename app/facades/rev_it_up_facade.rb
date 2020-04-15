@@ -32,4 +32,8 @@ class RevItUpFacade
   def lng
     @data[:longitude].to_f
   end
+
+  def url
+    @data[:url]
+  end
 end

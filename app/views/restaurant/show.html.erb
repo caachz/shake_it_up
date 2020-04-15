@@ -1,6 +1,7 @@
   <div class="center-align">
     <section id='restaurant'>
       <h1 id='name'><%= @restaurant.name %></h1>
+      <%= link_to "Restaurant Information", @restaurant.url, target: :_blank %>
       <ul>
         <li id='address'>Address: <%= @restaurant.address%></li>
         <li id='price'>Price: <%= @restaurant.price%></li>
