@@ -2,18 +2,19 @@
 <span class="flow-text">
   <div class="center-align">
     <img class="responsive-img" src="https://media.giphy.com/media/RNQzfenCmm3RfR4Ttp/giphy.gif">
-      <br><br><br><br>
+    <br><br><br><br>
 
-      <a class ="waves-effect waves-light btn-large #c5e1a5 light-green lighten-3 black-text">
-        <% if current_user == nil %>
-          <%= button_to "Sign in with Google", "/auth/google_oauth2", style: "color: black;" %>
-        <% else %>
-          <%= button_to "Find a place to eat!", dashboard_path, method: :get, style: "color: black;" %>
-        <% end %>
-      </a>
-      <br><br>
-        <% if current_user %>
-          <h6>Signed in as <%= current_user.first_name %></h6>
-        <% end %>
+    <a class="waves-effect waves-light btn-large #c5e1a5 light-green lighten-3 black-text">
+      <% if current_user == nil %>
+        <%= button_to "Sign in with Google", "/auth/google_oauth2", style: "color: black;" %>
+      <% else %>
+        <%= button_to "Find a place to eat!", dashboard_path, method: :get, style: "color: black;" %>
+      <% end %>
+    </a>
+    <br><br>
+    <% if current_user %>
+      <h6>Signed in as
+        <%= current_user.first_name %></h6>
+    <% end %>
   </div>
 </span>

@@ -1,28 +1,38 @@
-  <div class="center-align">
-    <section id='restaurant'>
-      <h1 id='name'><%= @restaurant.name %></h1>
-        <a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3">
-          <%= button_to "Restaurant Information", @restaurant.url, form: {target: :_blank}, method: :get, style: "color: black;" %>
-        </a>
-      <ul>
-        <li id='address'><b>Address:</b> <%= @restaurant.address%></li>
-        <li id='price'><b>Price:</b> <%= @restaurant.price%></li>
-        <li id='avg_rating'><b>Average Rating:</b> <%= @restaurant.avg_rating%></li>
-        <li id='category'><b>Category:</b> <%= @restaurant.category %>
-      </ul>
-    </section>
+<div class="center-align">
+  <section id='restaurant'>
+    <h1 id='name'><%= @restaurant.name %></h1>
+    <a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3">
+      <%= button_to "Restaurant Information", @restaurant.url, form: {target: :_blank}, method: :get, style: "color: black;" %>
+    </a>
+    <ul>
+      <li id='address'>
+        <b>Address:</b>
+        <%= @restaurant.address%></li>
+      <li id='price'>
+        <b>Price:</b>
+        <%= @restaurant.price%></li>
+      <li id='avg_rating'>
+        <b>Average Rating:</b>
+        <%= @restaurant.avg_rating%></li>
+      <li id='category'>
+        <b>Category:</b>
+        <%= @restaurant.category %>
+    </ul>
+  </section>
 
   <iframe
     width="600"
     height="450"
-    frameborder="0" style="border:0"
+    frameborder="0"
+    style="border:0"
     src="https://www.google.com/maps/embed/v1/directions?key=<%=ENV['GOOGLE_API_KEY']%>
       &origin=<%=@current_user.lat%>,<%=current_user.lng%>
-      &destination=<%=@restaurant.lat%>,<%=@restaurant.lng%>" allowfullscreen>
-  </iframe><br><br>
-<p><b>Not Satisfied?</b><br></p>
+      &destination=<%=@restaurant.lat%>,<%=@restaurant.lng%>"
+    allowfullscreen="allowfullscreen"></iframe><br><br>
+  <p>
+    <b>Not Satisfied?</b><br></p>
   <a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3">
-    <INPUT TYPE="button" VALUE="Shake It Up Again" onClick="history.go(0)">
+    <input type="button" value="Shake It Up Again" onclick="history.go(0)">
   </a>
   <a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3 black-text">
     <%= button_to "Reset Criteria", dashboard_path, method: :get, style: "color: black;" %>
