@@ -16,7 +16,7 @@ class RevItUpService
     end
   end
 
-    def conn
-      conn = Faraday.new(url: "https://rev-it-up.herokuapp.com")
-    end
+  def conn
+    conn = Faraday.new(url: "https://rev-it-up.herokuapp.com")
+  end
 end

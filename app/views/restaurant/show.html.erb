@@ -1,7 +1,9 @@
   <div class="center-align">
     <section id='restaurant'>
       <h1 id='name'><%= @restaurant.name %></h1>
-      <%= link_to "Restaurant Information", @restaurant.url, target: :_blank %>
+        <a class="waves-effect waves-light btn-small">
+          <%= button_to "Restaurant Information", @restaurant.url, form: {target: :_blank}, method: :get %>
+        </a>
       <ul>
         <li id='address'>Address: <%= @restaurant.address%></li>
         <li id='price'>Price: <%= @restaurant.price%></li>
