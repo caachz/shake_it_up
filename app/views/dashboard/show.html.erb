@@ -4,7 +4,16 @@
 	</div>
 <% end %><br><br><br><br>
 
-<div class="center-align">	<%= form_tag(restaurant_path, method: "get") do %>
+
+<div class="center-align">	<%= form_tag(restaurant_path, method: "get", id: 'user_input') do %>
+	<h4>Where are you looking?</h4><br>
+	<label for="current_location">Use Current Location</label><br>
+	  <input type="radio" id="current_location" name="location" value="current location" checked><br>
+		<label for="enter_location">Enter a location</label><br>
+	  <input type="radio" id="enter_location" name="location" value="enter location"><br>
+
+		<h4>Enter Search Location</h4><br>
+		<%= text_field_tag 'address' %><br>
 
 	<h4>How far are you willing to travel?</h4><br>
 
@@ -30,6 +39,33 @@
 	</span></div>
 	</div>
 
+	<%= text_field_tag 'lat'%>
+	<%= text_field_tag 'lng' %>
+
 	<%= submit_tag('Shake It Up!', class: "button") %>
-          <% end %>
+	<% end %>
+
+<body onload="getLocation();">
+
+<p id="demo"></p>
+
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+	document.getElementById('lat').value=position.coords.latitude
+	document.getElementById('lng').value=position.coords.longitude
+}
+
+</script>
+
 </div>

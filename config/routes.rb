@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'home', to: 'home#show'
   get '/restaurant', to: 'restaurant#show', as: 'restaurant'
   get '/dashboard', to: 'dashboard#show', as: 'dashboard'
+  post '/dashboard', to: 'dashboard#create', as: 'geolocate'
   root to: "home#show"
 end
