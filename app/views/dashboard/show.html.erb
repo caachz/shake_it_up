@@ -6,14 +6,11 @@
 
 
 <div class="center-align">	<%= form_tag(restaurant_path, method: "get", id: 'user_input') do %>
-	<h4>Where are you looking?</h4><br>
-	<label for="current_location">Use Current Location</label><br>
-	  <input type="radio" id="current_location" name="location" value="current location" checked><br>
-		<label for="enter_location">Enter a location</label><br>
-	  <input type="radio" id="enter_location" name="location" value="enter location"><br>
+	<h4>Where are you looking?</h4>
 
-		<h4>Enter Search Location</h4><br>
-		<%= text_field_tag 'address' %><br>
+	  <input type="radio" id="current_location" name="location" value="current location class='current_location'" checked><label for="current_location">Use Current Location</label>
+
+	  <input type="radio" id="enter_location" name="location" value="enter location" class='enter_location'><label for="enter_location">Enter a location</label>
 
 	<h4>How far are you willing to travel?</h4><br>
 
