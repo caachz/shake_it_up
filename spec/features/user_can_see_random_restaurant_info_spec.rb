@@ -4,7 +4,7 @@ RSpec.describe 'As a user when I visit dashboard' do
   describe 'I can click shake it up link with params of price and distance' do
     before :each do
       visit root_path
-      stub_omniauth 
+      stub_omniauth
       click_button 'Sign in with Google'
 
       expect(current_path).to eq(dashboard_path)
