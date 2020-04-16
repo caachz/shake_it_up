@@ -10,7 +10,6 @@ module ApplicationHelper
       ['10 Miles', '10'],
       ['15 Miles', '15'],
       ['20 Miles', '20'],
-      ['25 Miles', '25'],
     ]
   end
 
