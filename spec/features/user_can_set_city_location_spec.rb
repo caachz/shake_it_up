@@ -15,7 +15,7 @@ RSpec.describe 'As a user when I visit dashboard' do
       fill_in :city, with: "Boulder"
 
       click_button 'Set City'
-      
+
       expect(current_user.lat).to eq(citylat)
       expect(current_user.lng).to eq(citylng)
     end

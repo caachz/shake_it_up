@@ -7,9 +7,23 @@
 		</h4>
 	</div>
 <% end %><br><br><br><br>
+<div class="center-align">
+
+	<!-- <a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3 black-text">
+		<center>
+			<%= form_tag "/dashboard", method: :patch do %>
+			<%= label_tag :city %>
+			<%= text_field_tag :city %>
+			<%= submit_tag 'City' %>
+			<% end %>
+		</center>
+	</a>
+</div> -->
+
 
 <div class="center-align">
 	<%= form_tag(restaurant_path, method: "get") do %>
+
 
 	<h5>
 		<b>How far are you willing to travel?</b>
@@ -45,12 +59,4 @@
 				<%= submit_tag('Shake It Up!', class: "button") %>
 			<% end %>
 		</a>
-
-		<center>
-			<%= form_tag "/dashboard", method: :patch do %>
-				<%= label_tag :city %>
-				<%= text_field_tag :city %>
-				<%= submit_tag 'Set City' %>
-			<% end %>
-		</center>
 	</div>
