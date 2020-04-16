@@ -45,4 +45,12 @@
 				<%= submit_tag('Shake It Up!', class: "button") %>
 			<% end %>
 		</a>
+
+		<center>
+			<%= form_tag "/dashboard", method: :patch do %>
+				<%= label_tag :city %>
+				<%= text_field_tag :city %>
+				<%= submit_tag 'Set City' %>
+			<% end %>
+		</center>
 	</div>
