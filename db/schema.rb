@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_013405) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "lat"
-    t.float "lng"
+    t.float "lat", default: 39.6589995
+    t.float "lng", default: -104.8016887
   end
 
 end
