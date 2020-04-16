@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   get 'home', to: 'home#show'
   get '/restaurant', to: 'restaurant#show', as: 'restaurant'
   get '/dashboard', to: 'dashboard#show', as: 'dashboard'
+  get '/dashboard', to: 'dashboard#edit'
+  patch '/dashboard', to: 'dashboard#update'
   root to: "home#show"
 end
