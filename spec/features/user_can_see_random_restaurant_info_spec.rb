@@ -12,7 +12,6 @@ RSpec.describe 'As a user when I visit dashboard' do
     end
 
     it 'shows me a random restaurant with info' do
-
       visit '/dashboard'
       select "1 Mile", from: :distance
       select "$$$", from: :price

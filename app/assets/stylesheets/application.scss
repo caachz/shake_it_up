@@ -19,6 +19,28 @@ select {
   display: block;
 }
 
+#current_location {
+  opacity: 1;
+}
+
+#enter_location {
+  opacity: 1;
+}
+
+
+
+#lat{
+  visibility: hidden;
+  height: 0px;
+  width: 0px;
+}
+
+#lng{
+  visibility: hidden;
+  height: 0px;
+  width: 0px;
+}
+
 h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 900;

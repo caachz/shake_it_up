@@ -9,21 +9,28 @@
 <% end %><br><br><br><br>
 <div class="center-align">
 
-	<!-- <a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3 black-text">
+
+	<a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3 black-text">
 		<center>
 			<%= form_tag "/dashboard", method: :patch do %>
 			<%= label_tag :city %>
 			<%= text_field_tag :city %>
-			<%= submit_tag 'City' %>
+			<%= submit_tag 'Set City' %>
 			<% end %>
 		</center>
 	</a>
-</div> -->
+</div>
+
+<div class="center-align">	<%= form_tag("/restaurant", method: :get, id: 'user_input') do %>
+	<h4>Where are you looking?</h4>
+
+	  <input type="radio" id="current_location" name="location" value="current location class='current_location'" checked><label for="current_location">Use Current Location</label>
+
+	  <input type="radio" id="enter_location" name="location" value="enter location" class='enter_location'><label for="enter_location">Enter a location</label>
+
 
 
 <div class="center-align">
-	<%= form_tag(restaurant_path, method: "get") do %>
-
 
 	<h5>
 		<b>How far are you willing to travel?</b>
@@ -55,8 +62,38 @@
 				</div>
 			</div>
 
+			<%= text_field_tag 'lat'%>
+			<%= text_field_tag 'lng' %>
+
 			<a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3 black-text">
-				<%= submit_tag('Shake It Up!', class: "button") %>
+			<%= submit_tag('Shake It Up!', class: "button") %>
 			<% end %>
 		</a>
 	</div>
+
+
+
+<body onload="getLocation();">
+
+<p id="demo"></p>
+
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+	document.getElementById('lat').value=position.coords.latitude
+	document.getElementById('lng').value=position.coords.longitude
+}
+
+</script>
+
+</div>
