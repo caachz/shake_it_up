@@ -20,6 +20,8 @@ class RestaurantController < ApplicationController
     else
       @restaurant = RevItUpFacade.new(service.restaurant)
     end
+
+    @current_user = current_user
   end
 
   def meters_to_miles
