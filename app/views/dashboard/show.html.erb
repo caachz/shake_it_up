@@ -30,12 +30,15 @@
 </div>
 <div class="center-align">	<%= form_tag("/restaurant", method: :get, id: 'user_input') do %>
 
-	  <p><input type="radio" id="current_location" name="location" value="current location" checked><label for="current_location">Use Current Location</label></p>
+	  <input type="radio" id="current_location" name="location" value="current location" checked>
+		<label for="current_location">Use Current Location</label><br>
 
-	  <input type="radio" id="enter_location" name="location" value="enter location" class='enter_location'><label for="enter_location">Enter a location</label>
+	  <input type="radio" id="enter_location" name="location" value="enter location" class='enter_location'>
+		<label for="enter_location">Enter a location</label>
+
 
 		<%= label_tag :city %>
-		<%= text_field_tag :city %>
+		<%= text_field_tag :city, nil, placeholder: 'Search by City, State (E.g. "CO"), zip, or full street address"' %>
 
 
 
