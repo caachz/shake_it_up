@@ -12,9 +12,21 @@ RSpec.describe 'As a user when I visit dashboard' do
     end
 
     it 'shows me a random restaurant with info' do
+      user = User.create!(uid: "32rfeswr32r",
+                      provider: "google",
+                      email: "something@something.com",
+                      first_name: "Carla",
+                      last_name: "Stanford",
+                      lat: 39.7392,
+                      lng: -104.9903)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
       visit '/dashboard'
       select "1 Mile", from: :distance
       select "$$$", from: :price
+      page.choose('enter_location')
+      fill_in :city, with: 'Boulder'
       click_button 'Shake It Up!'
 
       within '#restaurant' do
@@ -26,7 +38,7 @@ RSpec.describe 'As a user when I visit dashboard' do
     end
 
     it "shows a flash message when a restaurant could not be found" do
-      user = User.new(uid: "32rfeswr32r",
+      user = User.create!(uid: "32rfeswr32r",
                       provider: "google",
                       email: "something@something.com",
                       first_name: "Carla",
@@ -38,6 +50,8 @@ RSpec.describe 'As a user when I visit dashboard' do
 
       select '1 Mile', from: :distance
       select '$$$$', from: :price
+      page.choose('enter_location')
+      fill_in :city, with: 'Cheyenne'
 
       click_on 'Shake It Up!'
 

@@ -6,13 +6,10 @@ class RestaurantController < ApplicationController
       current_user.lng = params["lng"].to_f
       current_user.save!
     else
-      # require "pry"; binding.pry
-      # @user = User.find(current_user.id)
       city = Geocoder.search(params["city"]).first
       current_user.lat = city.coordinates[0]
       current_user.lng = city.coordinates[-1]
       current_user.save!
-      # redirect_to "/dashboard"
     end
 
     service = RevItUpService.new(current_user.lat, current_user.lng, meters_to_miles, params["price"])

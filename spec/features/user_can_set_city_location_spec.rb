@@ -12,9 +12,10 @@ RSpec.describe 'As a user when I visit dashboard' do
 
       visit '/dashboard'
 
+      page.choose('enter_location')
       fill_in :city, with: "Boulder"
 
-      click_button 'Set City'
+      click_button 'Shake It Up!'
 
       expect(current_user.lat).to eq(citylat)
       expect(current_user.lng).to eq(citylng)
