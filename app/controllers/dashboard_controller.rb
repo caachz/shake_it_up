@@ -12,11 +12,11 @@ class DashboardController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
-    city = Geocoder.search(params["city"]).first
-    current_user.lat = city.coordinates[0]
-    current_user.lng = city.coordinates[-1]
-    current_user.save!
-    redirect_to "/dashboard"
+    # @user = User.find(current_user.id)
+    # city = Geocoder.search(params["city"]).first
+    # current_user.lat = city.coordinates[0]
+    # current_user.lng = city.coordinates[-1]
+    # current_user.save!
+    # redirect_to "/dashboard"
   end
 end

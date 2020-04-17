@@ -6,27 +6,21 @@
 				<%= current_user.first_name.capitalize %>! Give us a hint on how you want to eat and we'll do the rest!</p>
 		</h4>
 	</div>
-<% end %><br><br><br><br>
+<% end %><br><br>
 <div class="center-align">
 
-
-	<a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3 black-text">
-		<center>
-			<%= form_tag "/dashboard", method: :patch do %>
-			<%= label_tag :city %>
-			<%= text_field_tag :city %>
-			<%= submit_tag 'Set City' %>
-			<% end %>
-		</center>
-	</a>
-</div>
-
-<div class="center-align">	<%= form_tag("/restaurant", method: :get, id: 'user_input') do %>
 	<h4>Where are you looking?</h4>
 
-	  <input type="radio" id="current_location" name="location" value="current location class='current_location'" checked><label for="current_location">Use Current Location</label>
+</div>
+<div class="center-align">	<%= form_tag("/restaurant", method: :get, id: 'user_input') do %>
+
+	  <p><input type="radio" id="current_location" name="location" value="current location" checked><label for="current_location">Use Current Location</label></p>
 
 	  <input type="radio" id="enter_location" name="location" value="enter location" class='enter_location'><label for="enter_location">Enter a location</label>
+
+		<%= label_tag :city %>
+		<%= text_field_tag :city %>
+
 
 
 

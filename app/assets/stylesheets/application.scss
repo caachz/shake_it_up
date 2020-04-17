@@ -20,7 +20,11 @@ select {
 }
 
 #current_location {
+  display: inline;
+  whitespace: nowrap;
   opacity: 1;
+  padding-right: 10px;
+  padding-left: 5px;
 }
 
 #enter_location {
