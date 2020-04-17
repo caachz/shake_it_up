@@ -24,3 +24,10 @@ To run the test suite, simply run the command `rspec` from your terminal.
 
 ### API Keys Needed
 * Google API
+
+## Project Collaborators
+
+* Cassie Achzenick - https://github.com/caachz
+* Travis Borgsmiller - https://github.com/TravisBorgsmiller
+* Alex Gallant - https://github.com/agallant121
+* Matt Holmes - https://github.com/holmesm8
