@@ -31,8 +31,6 @@ select {
   opacity: 1;
 }
 
-
-
 #lat{
   visibility: hidden;
   height: 0px;
@@ -54,7 +52,7 @@ h1 {
     }
 
 h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: Lucida Console, Courier, monospace;
     font-weight: 900;
     line-height: 46px;
     font-size: 43px;
@@ -92,4 +90,8 @@ select {
 
 select:hover {
   background-color: lightblue;
+}
+
+input[type=submit]:hover {
+  background-color: #b2ebf2 ;
 }
