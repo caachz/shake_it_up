@@ -1,89 +1,91 @@
 <script>
 	function grabGeolocation() {
-		 fetch("https://www.googleapis.com/geolocation/v1/geolocate?key=<%= ENV['GOOGLE_API_KEY'] %>", {
-			 method: 'POST'
-		 })
-		 .then((response) => response.json())
-		 .then((data) => {
-			 document.getElementById('lat').value=data.location.lat
-			 document.getElementById('lng').value=data.location.lng
-			 lat = data.location.lat;
-			 long = data.location.lng;
-		 })}
+		fetch("https://www.googleapis.com/geolocation/v1/geolocate?key=<%= ENV['GOOGLE_API_KEY'] %>", {method: 'POST'}).then((response) => response.json()).then((data) => {
+			document.getElementById('lat').value = data.location.lat
+			document.getElementById('lng').value = data.location.lng
+			lat = data.location.lat;
+			long = data.location.lng;
+		})
+	}
 </script>
 
 <body onload="grabGeolocation();">
 
-<br><br><br><br>
-<% if current_user %>
+	<br><br><br><br>
+	<% if current_user %>
+		<div class="center-align">
+			<h4>
+				<p>Welcome,
+					<%= current_user.first_name.capitalize %>! Give us a hint on how you want to eat and we'll do the rest!</p>
+			</h4>
+		</div>
+	<% end %><br><br>
 	<div class="center-align">
-		<h4>
-			<p>Welcome,
-				<%= current_user.first_name.capitalize %>! Give us a hint on how you want to eat and we'll do the rest!</p>
-		</h4>
+
+		<h4>Where are you looking?</h4>
+
 	</div>
-<% end %><br><br>
-<div class="center-align">
+	<div class="center-align">
+		<%= form_tag("/restaurant", method: :get, id: 'user_input') do %>
 
-	<h4>Where are you looking?</h4>
+		<input type="radio" id="current_location" name="location" value="current location">
+		<label for="current_location" style="display: block;"><br>Use Current Location</label><br>
 
-</div>
-<div class="center-align">	<%= form_tag("/restaurant", method: :get, id: 'user_input') do %>
+		<input type="radio" id="enter_location" name="location" value="enter location" class='enter_location' checked="checked">
+		<label for="enter_location" style="display: block;"><br>Enter a location:</label>
 
-	  <p><input type="radio" id="current_location" name="location" value="current location" checked><label for="current_location">Use Current Location</label></p>
+		<div class="center-align">
+			<div class="row">
+				<div class="col s12 m4 l8"></div>
+				<div class="col s12 m4 l8">
+					<section style="margin-left: 50%; margin-right: -5%">
+						<%= text_field_tag :city, nil, placeholder: 'Search by City, State (e.g. "CO"), zip, or full street address"', style: "text-align: center;"%>
 
-	  <input type="radio" id="enter_location" name="location" value="enter location" class='enter_location'><label for="enter_location">Enter a location</label>
-
-		<%= label_tag :city %>
-		<%= text_field_tag :city %>
-
-
-
-
-<div class="center-align">
-
-	<h5>
-		<b>How far are you willing to travel?</b>
-	</h5><br>
-
-	<div class="row">
-		<div class="col s12 m4 l2"></div>
-
-		<div class="row">
-			<div class="col s12 m4 l8">
-				<span class="flow-text">
-					<%= select_tag(:distance, options_for_select(distance) ) %><br><br>
-				</span>
+					</section>
+				</div>
+				<div class="col s12 m4 l8"></div>
 			</div>
 		</div>
 
-		<h5>
-			<b>How much are you willing to pay?</b>
-		</h5><br>
+		<div class="center-align">
 
-		<div class="row">
-			<div class="col s12 m4 l2"></div>
+			<h5>
+				<b>How far are you willing to travel?</b>
+			</h5><br>
 
 			<div class="row">
-				<div class="col s12 m4 l8">
-					<span class="flow-text">
-						<%= select_tag(:price, options_for_select(prices)) %><br><br>
-					</span>
+				<div class="col s12 m4 l2"></div>
+
+				<div class="row">
+					<div class="col s12 m4 l8">
+						<span class="flow-text">
+							<%= select_tag(:distance, options_for_select(distance) ) %><br><br>
+						</span>
+					</div>
 				</div>
+
+				<h5>
+					<b>How much are you willing to pay?</b>
+				</h5><br>
+
+				<div class="row">
+					<div class="col s12 m4 l2"></div>
+
+					<div class="row">
+						<div class="col s12 m4 l8">
+							<span class="flow-text">
+								<%= select_tag(:price, options_for_select(prices)) %><br><br>
+							</span>
+						</div>
+					</div>
+
+					<%= text_field_tag 'lat'%>
+					<%= text_field_tag 'lng' %>
+
+					<a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3 black-text">
+						<%= submit_tag('Shake It Up!', class: "button") %>
+					<% end %>
+				</a>
 			</div>
 
-			<%= text_field_tag 'lat'%>
-			<%= text_field_tag 'lng' %>
-
-			<a class="waves-effect waves-light btn-small #c5e1a5 light-green lighten-3 black-text">
-			<%= submit_tag('Shake It Up!', class: "button") %>
-			<% end %>
-		</a>
-	</div>
-
-
-
-
-
-
-</div>
+		</div>
