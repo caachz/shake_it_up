@@ -11,6 +11,9 @@ RSpec.describe 'As a logged in user' do
   end
 
   it "shows options for users via dropdown menus before they shake it up" do
+    page.choose('enter_location')
+    fill_in :city, with: 'Denver'
+
     expect(page).to have_content('Welcome, Happy')
     expect(page).to have_content('Logout')
     select "1 Mile", from: :distance
