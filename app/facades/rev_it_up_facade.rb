@@ -22,6 +22,9 @@ class RevItUpFacade
   end
 
   def category
+    if @data[:categories].length == 0
+      return "Too cool for labels."
+    end
     @data[:categories][0][:title]
   end
 
@@ -34,6 +37,9 @@ class RevItUpFacade
   end
 
   def url
+    if @data[:url].length == 0
+      return "Too cool for websites."
+    end
     @data[:url]
   end
 end

@@ -5,6 +5,7 @@ class RestaurantController < ApplicationController
       current_user.lat = params["lat"].to_f
       current_user.lng = params["lng"].to_f
       current_user.save!
+      ## TODO: refactor into a service
     else
       city = Geocoder.search(params["city"]).first
       current_user.lat = city.coordinates[0]
@@ -15,7 +16,7 @@ class RestaurantController < ApplicationController
     service = RevItUpService.new(current_user.lat, current_user.lng, meters_to_miles, params["price"])
     @restaurant = RevItUpFacade.new(service.restaurant)
     if service.restaurant == "error"
-      flash[:notice] = "No restaurants meet this criteria. Please try again!"
+      flash[:notice] = "Looks like we couldn't find anything that time. Try shaking it up again. "
       redirect_to dashboard_path
     else
       @restaurant = RevItUpFacade.new(service.restaurant)

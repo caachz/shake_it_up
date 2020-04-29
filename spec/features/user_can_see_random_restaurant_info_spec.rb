@@ -56,7 +56,7 @@ RSpec.describe 'As a user when I visit dashboard' do
       click_on 'Shake It Up!'
 
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content('No restaurants meet this criteria. Please try again!')
+      expect(page).to have_content('Looks like we couldn\'t find anything that time')
     end
   end
 end
